@@ -13,8 +13,8 @@ int
 main(void)
 {
           // dichiaro le mia bellissime variabili
-          int n;
-          float a = 1.0;
+		  int n;
+		  float a = 1.0;
 		  float b = 2.0;
 		  float x = -4.0;
           
