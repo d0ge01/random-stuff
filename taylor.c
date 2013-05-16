@@ -14,19 +14,12 @@ main(void)
 {
           // dichiaro le mia bellissime variabili
           int n;
-          float a,b,x;
+          float a = 1.0;
+		  float b = 2.0;
+		  float x = -4.0;
           
           printf("Inserisci il limitatore: ");
           scanf("%d",&n);
-          
-          printf("Inserisci a(def: 1.0): ");
-          scanf("%f",&a);
-          
-          printf("Inserisci b(def: 2.0): ");
-          scanf("%f",&b);
-          
-          printf("Inserisci x(def:-4.0): ");
-          scanf("%f",&x);
           taylor(n, 0,(b-a)/n,a,x);
 }
 
