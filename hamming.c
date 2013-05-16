@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#ifdef _WIN32
+
 #include <windows.h>
+
+#elif _WIN64
+
+#include <windows.h>
+
+#endif
+
 #include <math.h>
 /* Salvatore Criscione <not.salvatore@logorroici.org>
  * Hamming Coder
@@ -18,8 +28,10 @@ void checkD(int **v,int *cv);
 void checkP(int **v,int *cv);
 void printc(int *cv);
 void hex1(int *cv);
-void color(WORD color);
 
+#ifdef _WIN32 || _WIN64
+void color(WORD color);
+#endif
 HANDLE hConsole;
 WORD wAttr;
 int DEBUG=0;
@@ -43,7 +55,9 @@ main(void)
           int info[X];
           
           do {
+              #ifdef _WIN32 || _WIN64
               color(FOREGROUND_GREEN);
+              #endif
               printm(hamming);
               printf("\n\n");
               
@@ -51,10 +65,14 @@ main(void)
               printf("\n");
               
               printm(hamming);
+              #ifdef _WIN32 || _WIN64
               color(FOREGROUND_BLUE);
+              #endif
               
               printi(info);
+              #ifdef _WIN32 || _WIN64
               color(FOREGROUND_GREEN);
+              #endif
               
               printf("Use 'p' for pair\nUse 'd' for unpair\nMake Ch: ");
               scelta = getche();
@@ -74,9 +92,13 @@ main(void)
                             }
               }
               printm(hamming);
+              #ifdef _WIN32 || _WIN64
               color(FOREGROUND_BLUE);
+              #endif
               printc(info);
+              #ifdef _WIN32 || _WIN64
               color(FOREGROUND_GREEN);
+              #endif
               
               printf("Il valore hex: ");
               hex1(info);
@@ -178,7 +200,11 @@ printc(int *cv)
            for(i=0;i<X;i++)
            {
                if ( i > 10 )
+               {
+                  #ifdef _WIN32 || _WIN64
                   color(FOREGROUND_RED);
+                  #endif
+               }
                printf(" %d ", cv[i]);
            }
            printf("\n");
@@ -202,6 +228,7 @@ hex1(int *cv)
                d = d+4;
          }
 }
+#ifdef _WIN32 || _WIN64
 void
 color(WORD color)
 {         
@@ -209,3 +236,4 @@ color(WORD color)
           wAttr=color;
           SetConsoleTextAttribute(hConsole,wAttr);
 }
+#endif
