@@ -16,8 +16,8 @@ void stampa(int *v);
 int
 main()
 {
-      int v1[NELEMENTI];
-      
+      int *v1 = NULL;
+      v1 = malloc(sizeof(int)*NELEMENTI)
       leggiVett(v1);
       printf("Prima: ");
       stampa(v1);
@@ -25,6 +25,7 @@ main()
       printf("Dopo : ");
       stampa(v1);
       sleep(5000); // mette in pausa per 5 secondi cosi leggete scemi.
+	  free(v1);
       return 0;
 }
 
