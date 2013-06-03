@@ -1,3 +1,7 @@
+/* Salvatore Criscione <not.salvatore@logorroici.org>
+ * 
+ */
+
 def hanoi(n, a, b, c) # hanoi(N_DISK,NAME_A,NAME_B,NAME_C)
 	if n <= 0
 		return 0

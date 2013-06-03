@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+/* Salvatore Criscione <not.salvatore@logorroici.org>
+ * 
+ */
 int genRandomChar(int r);
 
 int

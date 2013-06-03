@@ -3,6 +3,9 @@
 
 #define DIM 6
 
+/* Salvatore Criscione <not.salvatore@logorroici.org>
+ * 
+ */
 int ricercaSeq(int *v,int x,int dim);
 int ricercaBin(int *v, int n, int dim);
 void bSort(int *v,int dim);

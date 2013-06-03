@@ -13,8 +13,9 @@
 
 #include <math.h>
 /* Salvatore Criscione <not.salvatore@logorroici.org>
- * Hamming Coder
+ * 
  */
+ // Hamming Coder
 #define X           16
 #define Y           11
 #define R           5
