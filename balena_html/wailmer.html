@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Balena</title>
+<script src="jquery.js">
+</script>
+<style>
+	body {
+		width:		100%;
+		height:		100%;
+		overflow:	none;
+	}
+	#balena {
+		overflow:	none;
+	}
+</style>
+</head>
+<body>
+	<center>
+	<object id="balena" type="application/x-shockwave-flash" data="balena.swf" width="1" height="1">
+	<param name="movie" value="balena.swf"/> -->
+	</object>
+	</center>
+	<script>
+	$(document).ready( function(){
+        $("#balena").attr("height",$(window).height());
+        $("#balena").attr("width",$(window).width());
+	})
+	</script>
+</body>
+</html>
