@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title>Tile Concept</title>
+
+  <script src="res/jquery.js" type="text/javascript"></script>
+
+  <style>
+    #centered {
+      width:  80%;
+      height: 60%;
+    }
+    a {
+      color:  black;
+      text-decoration: none;
+    }
+    table,tr,td {
+      border: none;
+    }
+    .tile {
+      width:  150px;
+      height: 150px;
+    }
+  </style>
+  <script type="text/javascript">
+    var last = 0;
+    function openTile(n) {
+      if ( n != last ){
+        $(".divtile").hide("slow");
+        $("#tile"+n).show("slow");
+      }
+      last = n;
+    }
+  </script>
+
+</head>
+<body>
+  <center>
+  <div id="centered">
+    <table>
+    <tr>
+      <td class="tile"><a href="javascript:openTile(1);"> Tile 1:</a>
+          <div class="divtile" id="tile1">This is tile 1 text, u can hide press in anyone other tile</div>
+      </td>
+      <td class="tile"><a href="javascript:openTile(2);"> Tile 2:</a>
+          <div class="divtile" id="tile2">This is tile 2 text, u can hide press in anyone other tile</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="tile"><a href="javascript:openTile(3);"> Tile 3:</a>
+          <div class="divtile" id="tile3">This is tile 3 text, u can hide press in anyone other tile</div>
+      </td>
+      <td class="tile"><a href="javascript:openTile(4);"> Tile 4:</a>
+          <div class="divtile" id="tile4">This is tile 4 text, u can hide press in anyone other tile</div>
+      </td>
+    </tr>
+    </table>
+  </div>
+  </center>
+  <script>
+    $(".divtile").hide();
+  </script>
+</body>
+</html>
+
+
+
