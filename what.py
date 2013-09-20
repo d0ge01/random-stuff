@@ -8,8 +8,8 @@ alfabeto = ['a', 'b', 'c', 'd', 'e']
 while condizione:
 	print("Che classe frequenti ? \n a) Prima \n b) Seconda \n c) Terza \n d) Quarta \n e) Quinta\n Scegli: ")
 	classe = input()
-	condizione = not(re.match( r'[abcde]', classe, re.M|re.I ))
-
+	condizione = not(re.match( r'[abcde]{1}', classe, re.M|re.I ))
+	
 condizione = 1
 print("In quale sezione?\nScegli:")
 
