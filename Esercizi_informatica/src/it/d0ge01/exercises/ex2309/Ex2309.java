@@ -34,6 +34,8 @@ public class Ex2309 {
 			if ( sc == 5 )
 				Esercizio5();
 			
+			if ( sc == 6 )
+				Esercizio6();
 			
 			if ( sc == 0 )
 				return;
@@ -115,22 +117,31 @@ public class Ex2309 {
 	private static void Esercizio5() throws IOException {
 		System.out.print("Inserisci un reale: ");
 		double n = Util.inputDouble();
-		/*
-		 * System.out.println(contaCifre(n));
-		 * 
-		 * Work in progress 
-		 */
+		System.out.println(contaCifre(n));
 	}
 	
 	private static int contaCifre(double n) {
 		// TODO Auto-generated method stub
-		if ( n <= 1 )
-			return 0;
+		if ( n <= 10 )
+			return 1;
 		else
-			return ( 1 + contaCifre(n * 10));
+			return ( contaCifre(n / 10) + 1 );
 	}
 
-	private static void Esercizio6() {
-		// WORK IN PROGRESS
+	private static void Esercizio6() throws IOException {
+		double n1, n2, buff;
+		n1 = 0.0;
+		System.out.println("Inserisci un quadrato: ");
+		double n = Util.inputDouble();
+		n2 = n;
+		System.out.println("Inserisci l'errore: ");
+		double err = Util.inputDouble();
+		while ( ( n2 - n1 ) > err ) {
+			if ( Math.pow(n1, 2)  < n )
+				n1 += err;
+			if ( Math.pow(n2, 2) > n )
+				n2 -= err;
+		}
+		System.out.println("La tua radice si trova tra " + n1 + " e "  + n2 + " :D");
 	}
 }
