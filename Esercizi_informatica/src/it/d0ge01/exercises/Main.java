@@ -2,7 +2,7 @@ package it.d0ge01.exercises;
 
 import java.io.IOException;
 
-import it.d0ge01.exercises.ex2309.Ex2309;
+import it.d0ge01.exercises.ex2309.*;
 import it.d0ge01.exercises.util.*;
 
 public class Main {
@@ -19,7 +19,7 @@ public class Main {
 			sc = Util.inputInt();
 			
 			if ( sc == 1 )
-				Ex2309.menu();
+				new Ex2309();
 			
 			if ( sc == 99 )
 				credits();

@@ -1,51 +1,24 @@
 package it.d0ge01.exercises.ex2309;
 
-import it.d0ge01.exercises.util.Util;
+import it.d0ge01.exercises.util.*;
 
 import java.io.IOException;
 
-public class Ex2309 {
-	public static void menu() throws IOException {
-		int sc = 0;
-		int buff = 10;
-		while ( true ) {
-			System.out.println("\n Menu ");
-			System.out.println("1- Media 3 Vettori reali");
-			System.out.println("2- Controlla '*' in un vettore di caratteri");
-			System.out.println("3- Controlla elementi pari in un vettore integer");
-			System.out.println("4- Conta elementi diversi v1, v2 = integer");
-			System.out.println("5- Conta le cifre di un naturale :D");
-			System.out.println("6- Calcola radice in un numero reale");
-			System.out.println("0- Esci");
-			sc = Util.inputInt();
-			
-			if ( sc == 1 )
-				Esercizio1(3);
-			
-			if ( sc == 2 )
-				Esercizio2(3);
-			
-			if ( sc == 3 )
-				Esercizio3(3);
-			
-			if ( sc == 4 )
-				Esercizio4(3);
-			
-			if ( sc == 5 )
-				Esercizio5();
-			
-			if ( sc == 6 )
-				Esercizio6();
-			
-			if ( sc == 0 )
-				return;
-		}
+public class Ex2309 extends ExTemplate {
+	public Ex2309() throws IOException {
+		super(testo);
+		// TODO Auto-generated constructor stub
 	}
+
+	public static String[] testo = {"Media 3 Vettori reali","Controlla '*' in un vettore di caratteri",
+		"Controlla elementi pari in un vettore integer","Conta elementi diversi v1, v2 integer",
+		"Conta le cifre di un naturale :D","Calcola radice in un numero reale"};
+	private static int sizeV = 3;
 	
-	private static void Esercizio1(int dim) throws IOException {
-		double[] v1 = new double[dim];
-		double[] v2 = new double[dim];
-		double[] v3 = new double[dim];
+	public void esercizio1() throws IOException {
+		double[] v1 = new double[sizeV];
+		double[] v2 = new double[sizeV];
+		double[] v3 = new double[sizeV];
 		
 		Util.loadArrayDouble("Inserisci l'elemento reale (1° v ): ", v1);
 		Util.loadArrayDouble("Inserisci l'elemento reale (2° v ): ", v2);
@@ -58,7 +31,7 @@ public class Ex2309 {
 		
 	}
 	
-	private static double sumAllDouble(double[] v) {
+	private double sumAllDouble(double[] v) {
 		// TODO Auto-generated method stub
 		double s = 0;
 		for ( int i = 0 ; i < v.length ; i++ )
@@ -66,32 +39,25 @@ public class Ex2309 {
 		return s;
 	}
 
-	private static void Esercizio2(int dim) throws IOException {
-		char[] v = new char[dim];
+	public void esercizio2() throws IOException {
+		char[] v = new char[sizeV];
 		boolean c= false;
 		Util.loadArrayChar("Inserisci un carattere: ", v);
-		/*
-			for ( int i = 0 ; i < v.length ; i++ )
-				if ( v[i] == '*')
-					return true;
-			// WARNING , Zorzi fury detected
-			return false;
-		*/
-		
+
 		for ( int i = 0 ; i < v.length ; i++ )
 			if ( v[i] == '*')
 				c = true;
 		System.out.println(c);
 	}
 	
-	private static void Esercizio3(int dim) throws IOException {
-		int[] v = new int[dim];
+	public void esercizio3() throws IOException {
+		int[] v = new int[sizeV];
 		boolean c = true;
 		int i = 0;
 		
 		
 		Util.loadArrayInt("Inserisci un intero: ", v);
-		while ( c && i < dim ) {
+		while ( c && i < sizeV ) {
 			if ( v[i] % 2 != 0 )
 				c = false;
 			i++;
@@ -99,22 +65,22 @@ public class Ex2309 {
 		System.out.println(c);
 	}
 	
-	private static void Esercizio4(int dim) throws IOException {
-		int[] v1 = new int[dim];
-		int[] v2 = new int[dim];
+	public void esercizio4() throws IOException {
+		int[] v1 = new int[sizeV];
+		int[] v2 = new int[sizeV];
 		int n = 0;
 		
 		Util.loadArrayInt("Inserisci un intero (1v): ", v1);
 		Util.loadArrayInt("Inserisci un intero (2v): ", v2);
 		
-		for ( int i = 0 ; i < dim ; i++ )
+		for ( int i = 0 ; i < sizeV ; i++ )
 			if ( !Util.checkIntIndex(v2, v1[i]) )
 				n += 1;
 		
 		System.out.println(n);
 	}
 	
-	private static void Esercizio5() throws IOException {
+	public void esercizio5() throws IOException {
 		System.out.print("Inserisci un reale: ");
 		double n = Util.inputDouble();
 		System.out.println(contaCifre(n));
@@ -128,8 +94,8 @@ public class Ex2309 {
 			return ( contaCifre(n / 10) + 1 );
 	}
 
-	private static void Esercizio6() throws IOException {
-		double n1, n2, buff;
+	public void esercizio6() throws IOException {
+		double n1, n2;
 		n1 = 0.0;
 		System.out.println("Inserisci un quadrato: ");
 		double n = Util.inputDouble();
