@@ -108,6 +108,9 @@ public class Ex2309 extends ExTemplate {
 			if ( Math.pow(n2, 2) > n )
 				n2 -= err;
 		}
-		System.out.println("La tua radice si trova tra " + n1 + " e "  + n2 + " :D");
+		if ( Math.pow(n1, 2) == n)
+			System.out.println("La tua radice e'  " + n1 + " :D");
+		else
+			System.out.println("La tua radice si trova tra " + n1 + " e "  + n2 + " :D");
 	}
 }

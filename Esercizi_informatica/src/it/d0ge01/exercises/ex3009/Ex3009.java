@@ -54,12 +54,12 @@ public class Ex3009 extends ExTemplate {
 
 	public void esercizio3() throws IOException {
 		int[] v = new int[sizeV];
-		
+		int p = 0;
 		Util.loadArrayInt("Inserisci un naturale tra 0 e 9: ", v);
 		
 		for ( int i = 0 ; i < v.length ; i++ )
 			if ( ( v[i] >= 0 ) && (v[i] <= 9))
-				System.out.print(v[i]);
-		System.out.println("");
+				p += ( v[i] * ((int) Math.pow(10, (v.length-i-1))));
+		System.out.println(p);
 	}
 }
