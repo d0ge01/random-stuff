@@ -62,4 +62,35 @@ public class Ex3009 extends ExTemplate {
 				p += ( v[i] * ((int) Math.pow(10, (v.length-i-1))));
 		System.out.println(p);
 	}
+	
+	public void esercizio4() throws IOException {
+		int[] v = new int[sizeV];
+		Util.loadArrayInt("Inserisci un intero: ", v);
+		int cont = 0;
+		
+		for ( int i = 0 ; i < v.length ; i++ )
+			if ( !ricercaSeq(v, v[i], i-1) )
+				cont += 1;
+		
+		System.out.println("Numero elementi distinti: " + cont);
+	}
+	private boolean ricercaSeq(int[] v, int n, int limit) {
+		for ( int i = 0 ; i <= limit && i < v.length ; i++ )
+			if ( v[i] == n )
+				return true;
+		return false;
+	}
+	
+	public void esercizio5() throws IOException {
+		int[] v = new int[sizeV];
+		Util.loadArrayInt("Inserisci un intero: ", v);
+		boolean trovato = false;
+		
+		for ( int i = 0 ; i < v.length && !trovato; i++ )
+			if ( v[i] == 0 )
+				trovato = true;
+		
+		System.out.println(trovato);
+		
+	}
 }
