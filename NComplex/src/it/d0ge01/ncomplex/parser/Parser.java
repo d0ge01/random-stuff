@@ -1,14 +1,12 @@
 package it.d0ge01.ncomplex.parser;
 
 
-import it.d0ge01.ncomplex.util.*;
 import java.util.regex.*;
 
 public class Parser {
 	
 	public int[] parser(String buff) {
 		int[] ret = new int[2];
-		int c = 0;
 		
 		Pattern p;
 		Matcher m;
@@ -16,7 +14,6 @@ public class Parser {
 		if ( buff.matches("\\d+ \\D \\d+i")  ) {
 			p = Pattern.compile("(\\d+) \\D{1} (\\d+)i");
 			m = p.matcher(buff);
-			c = 0;
 			
 			while(m.find()) {
 				ret[0] = Integer.parseInt(m.group(1));

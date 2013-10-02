@@ -14,6 +14,8 @@ public class Main {
 	
 	private static void menu() throws IOException {
 		String output = "";
+		char ch = '*';
+		
 		int[] n1 = new int[2];
 		int[] n2 = new int[2];
 		int[] r = new int[2];
@@ -28,10 +30,25 @@ public class Main {
 			output = Utils.inputString();
 			n2 = uno.parser(output);
 			
-			System.out.println(complex2String(n1) + " * " + complex2String(n2) + " = ");
-			
-			r = prodotto(n1, n2);
-			System.out.println(complex2String(r));
+			System.out.println("Cosa vuoi fare? * oppure / oppure + ? ");
+			ch = Utils.inputChar();
+			if ( ch == '/') {
+				System.out.println(complex2String(n1) + " / " + complex2String(n2) + " = ");
+				
+				r = prodotto(n1, n2);
+				System.out.println(complex2String(r));
+			} else {
+				if ( ch == '+' || ch == '-'){
+					System.out.println(complex2String(n1) + " " + ch + " " + complex2String(n2) + " = ");
+					
+					if ( ch == '+')
+						r = somma(n1, n2);
+					else
+						r = sottrazione(n1,n2);
+					
+					System.out.println(complex2String(r));	
+				}	
+			}
 		}
 	}
 	
@@ -48,5 +65,23 @@ public class Main {
 		ritorno[1] = ( v1[1] * v2[0] + v1[0] * v2[1]);
 		
 		return ritorno;
+	}
+	
+	private static int[] somma(int[] v1, int[] v2) {
+		int[] v = new int[2];
+		
+		v[0] = v1[0] + v2[0];
+		v[1] = v1[1] + v2[1];
+		
+		return v;
+	}
+	
+	private static int[] sottrazione(int[] v1, int[] v2) {
+		int[] v = new int[2];
+		
+		v[0] = v1[0] - v2[0];
+		v[1] = v1[1] - v2[1];
+		
+		return v;
 	}
 }
