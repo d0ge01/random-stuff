@@ -16,7 +16,8 @@ public abstract class ExTemplate {
 		while ( true ) {
 			System.out.println("\n Menu ");
 			for ( int i = 0 ; i < 6 ; i++ )
-				System.out.println("" + ( i + 1) + "- " + testo[i]);
+				System.out.println("" + ( i + 1 ) + "- " + testo[i]);
+			System.out.println("0- Torna al menu precedente");
 			System.out.print(">");
 			sc = Util.inputInt();
 			

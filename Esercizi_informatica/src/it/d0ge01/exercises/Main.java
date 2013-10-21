@@ -3,7 +3,8 @@ package it.d0ge01.exercises;
 import java.io.IOException;
 
 import it.d0ge01.exercises.ex2309.*;
-import it.d0ge01.exercises.ex3009.*;
+import it.d0ge01.exercises.ex3109.*;
+import it.d0ge01.exercises.ver0610.*;
 import it.d0ge01.exercises.util.*;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
 		while ( true ) {
 			System.out.println("1- Esercizi 23 / 09 ");
 			System.out.println("2- Esercizi 30 / 09 ");
+			System.out.println("3- Verifica 06 / 10 ");
 			System.out.println("99 - Crediti ");
 			System.out.println("0  - Esci ");
 			sc = Util.inputInt();
@@ -25,6 +27,10 @@ public class Main {
 			
 			if ( sc == 2 )
 				new Ex3009();
+			
+			if ( sc == 3 )
+				new Ver0610();
+			
 			if ( sc == 99 )
 				credits();
 			
