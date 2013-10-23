@@ -1,13 +1,13 @@
 package it.d0ge01.scuole;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class Main {
-	private static Scuola[] containerS;
-	private static int posx = 0;
+	private static LinkedList containerS;
 	
 	public static void main(String[] args) throws IOException {
-		containerS = new Scuola[30];
+		containerS = new LinkedList();
 		menu();
 	}
 	
@@ -39,18 +39,13 @@ public class Main {
 				System.out.print("Inserisci il nome della scuola: ");
 				String nome = Util.inputString();
 				
-				System.out.println("Inserisci il numero massimo di classi: ");
-				int sizeN = Util.inputInt();
-				
-				containerS[posx] = new Scuola(nome, sizeN);
-				if ( posx < 30 )
-					posx += 1;
+				containerS.add(new Scuola(nome));
 				break;
 			case 2:
 				buff1 = chSchool();
 				System.out.println("Che classe?");
 				String sez = Util.inputString();
-				buff1.addClass(Integer.valueOf(sez.charAt(0)), (char) sez.charAt(1) );
+				buff1.addClass(sez);
 				break;
 			case 3:
 				buff1 = chSchool();
@@ -64,6 +59,26 @@ public class Main {
 				
 				buff2.addStudente(new Studente(name, weight, vote));
 				break;
+			case 4:
+				System.out.println("Inserisci il nome: ");
+				String cerco = Util.inputString();
+				
+				buff1 = chSchool();
+				buff3 = buff1.searchStudent(cerco);
+				System.out.println(buff3);
+				break;
+			case 5:
+				buff1 = chSchool();
+				buff2 = chClass(buff1);
+				
+				System.out.println(buff2.toStamp());
+				break;
+			case 6:
+				buff1 = chSchool();
+				
+				System.out.println(buff1.toStamp());
+				break;
+				
 			default:
 				System.out.println("Stupio");
 				break;
@@ -74,29 +89,30 @@ public class Main {
 	
 	private static Scuola chSchool() throws IOException {
 		System.out.println("Di quale scuola? ");
-		for ( int i = 0 ; i < posx ; i++ )
-			System.out.println("-"+i+ " " + containerS[i].name);
+		for ( int i = 0 ; i < containerS.size() ; i++ )
+			System.out.println("-"+i+ " " + ((Scuola) containerS.get(i)).name);
 		System.out.println("Scegli: ");
 		int ch = Util.inputInt();
-		if ( ch < 0 || ch > posx ) {
+		if ( ch < 0 || ch > containerS.size() ) {
 			System.out.println("Non valido :D ");
 			return null;
 		}
-		return containerS[ch];
+		return (Scuola) containerS.get(ch);
 	}
 	
 	private static Classe chClass(Scuola x) throws IOException {
-		Classe[] buffClassi = x.list();
-		System.out.println("Di quale scuola? ");
-		for ( int i = 0 ; i < buffClassi.length ; i++ )
-			System.out.println("-"+i+ " " + buffClassi[i].name);
+		LinkedList buffClassi = x.list();
+		System.out.println("Di quale classe? ");
+		for ( int i = 0 ; i < buffClassi.size() ; i++ ) {
+			System.out.println("-"+i+ " " + (Classe) buffClassi.get(i));
+		}
 		System.out.println("Scegli: ");
 		int ch = Util.inputInt();
-		if ( ch < 0 || ch > buffClassi.length ) {
+		if ( ch < 0 || ch > buffClassi.size() ) {
 			System.out.println("Non valido :D ");
 			return null;
 		}
-		return buffClassi[ch];
+		return (Classe) buffClassi.get(ch);
 		
 	}
 }

@@ -1,38 +1,42 @@
 package it.d0ge01.scuole;
 
+import java.util.LinkedList;
+
 public class Classe {
-	private int size;
-	protected int posx = 0;
-	private Studente[] classe;
+	private LinkedList<Studente> classe;
 	protected String name;
 	
-	public Classe(int dimensione, int p, char s) {
-		this.size = dimensione;
-		classe = new Studente[this.size];
-		this.name = "" + p + s;
-	}
-	
-	public Classe() {
-		this.size = 30;
-		classe = new Studente[this.size];
+	public Classe(String name) {
+		classe = new LinkedList();
+		this.name = name;
 	}
 	
 	public void addStudente(Studente x) {
-		classe[posx] = x;
-		this.posx += 1;
+		this.classe.add(x);
+		this.classe.size();
 	}
 	
-	public Studente[] list() {
-		Studente[] buff = new Studente[this.posx+1];
-		for ( int i = 0 ; i <= this.posx ; i++ )
-			buff[i] = this.classe[i];
-		return buff;
+	@SuppressWarnings("unchecked")
+	public LinkedList<Studente> list() {
+		return this.classe;
 	}
 	
 	public String toString() {
-		String buff =  "Elenco classe " + this.name + ": \n";
-		for ( int i = 0 ; i <= this.posx ; i++ )
-			buff += "-"+ i + " " + classe[i].name + "\n";
-		return buff;
+		return this.name;
+	}
+	
+	public String toString(int i) {
+		if ( i < this.classe.size())
+			return ((Studente)this.classe.get(i)).name;
+		return this.name;
+	}
+	
+	public String toStamp() {
+		String ret = "";
+		for ( int i = 0 ; i < this.classe.size(); i++ ) {
+			ret += "" + i+1 + "- " + ((Studente) this.classe.get(i)).toString() + "\n";
+			
+		}
+		return ret;
 	}
 }
