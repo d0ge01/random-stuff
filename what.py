@@ -23,7 +23,7 @@ while condizione:
 	corso = input()
 	condizione = not(re.match( r'[abc]', sezione, re.M|re.I ))
 
-classe = alfabeto.index(classe.lower())
+classe = 1 + alfabeto.index(classe.lower())
 corso = corso.lower()
 
 corso = corso.replace('a','Sistemi informativi aziendali')
