@@ -3,7 +3,7 @@ package it.d0ge01.scuole;
 import java.util.LinkedList;
 
 public class Classe {
-	private LinkedList<Studente> classe;
+	private LinkedList classe;
 	protected String name;
 	
 	public Classe(String name) {
@@ -17,7 +17,7 @@ public class Classe {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public LinkedList<Studente> list() {
+	public LinkedList list() {
 		return this.classe;
 	}
 	

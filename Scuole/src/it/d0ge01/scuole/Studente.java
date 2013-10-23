@@ -24,6 +24,6 @@ public class Studente {
 	}
 	
 	public String toString() {
-		return this.name + " " + this.weight + " Vote: " + this.vote;
+		return this.name + " Weight: " + this.weight + " Vote: " + this.vote;
 	}
 }

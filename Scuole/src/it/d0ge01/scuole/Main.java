@@ -27,7 +27,7 @@ public class Main {
 			System.out.println("4. Cerca studente in una scuola ");
 			System.out.println("5. Elenca studenti di una classe");
 			System.out.println("6. Elenca studenti di una scuola");
-			
+			System.out.println("7. Modifica Studente");
 			System.out.println("0. Esci ");
 			
 			c = Util.inputInt();
@@ -54,8 +54,10 @@ public class Main {
 				name = Util.inputString();
 				System.out.println("Inserisci il peso:");
 				weight = Util.inputInt();
-				System.out.println("Inserisci la media:");
-				vote = Util.inputDouble();
+				do {
+					System.out.println("Inserisci la media:");
+					vote = Util.inputDouble();
+				}while(!(vote>=0 && vote <= 10));
 				
 				buff2.addStudente(new Studente(name, weight, vote));
 				break;
@@ -64,8 +66,7 @@ public class Main {
 				String cerco = Util.inputString();
 				
 				buff1 = chSchool();
-				buff3 = buff1.searchStudent(cerco);
-				System.out.println(buff3);
+				System.out.println(buff1.searchStudent(cerco));
 				break;
 			case 5:
 				buff1 = chSchool();
@@ -75,10 +76,23 @@ public class Main {
 				break;
 			case 6:
 				buff1 = chSchool();
-				
 				System.out.println(buff1.toStamp());
 				break;
-				
+			case 7:
+				buff1 = chSchool();
+				buff2 = chClass(buff1);
+				buff3 = chStudent(buff2);
+				System.out.println("Cosa vuoi modificare? (N/W/V)");
+				char ch = Util.inputChar();
+				System.out.print("Inserisci il nuovo dato: ");
+				if ( ch == 'N')
+					buff3.setName(Util.inputString());
+				if ( ch == 'W')
+					buff3.setWeight(Util.inputInt());
+				if ( ch == 'V')
+					buff3.setVote(Util.inputDouble());
+				System.out.println("Campo modificato");
+				break;
 			default:
 				System.out.println("Stupio");
 				break;
@@ -103,9 +117,8 @@ public class Main {
 	private static Classe chClass(Scuola x) throws IOException {
 		LinkedList buffClassi = x.list();
 		System.out.println("Di quale classe? ");
-		for ( int i = 0 ; i < buffClassi.size() ; i++ ) {
+		for ( int i = 0 ; i < buffClassi.size() ; i++ )
 			System.out.println("-"+i+ " " + (Classe) buffClassi.get(i));
-		}
 		System.out.println("Scegli: ");
 		int ch = Util.inputInt();
 		if ( ch < 0 || ch > buffClassi.size() ) {
@@ -114,5 +127,18 @@ public class Main {
 		}
 		return (Classe) buffClassi.get(ch);
 		
+	}
+	
+	private static Studente chStudent(Classe x) throws IOException {
+		LinkedList buffStudenti = x.list();
+		System.out.println("Quale studente?");
+		for ( int i = 0 ; i < buffStudenti.size() ; i++ )
+			System.out.println("-"+i+" "+((Studente) buffStudenti.get(i)).name);
+		int ch = Util.inputInt();
+		if ( ch < 0 || ch > buffStudenti.size()) {
+			System.out.println("Non valido");
+			return null;
+		}
+		return ( Studente ) buffStudenti.get(ch);
 	}
 }
