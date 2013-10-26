@@ -29,7 +29,7 @@ public class Scuola {
 			buff2 = buff.list();
 			for ( int j = 0 ; j < buff2.size() ; j++ ) {
 				buff3 = (Studente) buff2.get(j);
-				if ( buff3.name == nome )
+				if ( buff3.name.equals(nome) )
 					return buff3;
 			}
 		}
