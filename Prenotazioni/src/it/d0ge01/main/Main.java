@@ -11,12 +11,17 @@ public class Main {
 	}
 	
 	private static void menu() throws IOException {
+		Viaggio buff1;
+		Viaggio buff2;
+		String buff;
 		while(true) {
 			System.out.println("Agenzia viaggi:  ");
 			System.out.println("1- Aggiungi viaggio");
 			System.out.println("2- Aggiungi prenotazione");
 			System.out.println("3- Sposta prenotazioni");
 			System.out.println("4- Vedi prenotazioni");
+			System.out.println("5- Cerca prenotazione in un viaggio dal nome");
+			System.out.println("6- Cancella prenotazione");
 			System.out.println("0- Esci");
 			int ch = Util.inputInt();
 			switch ( ch ) {
@@ -28,19 +33,37 @@ public class Main {
 				viaggi.add(new Viaggio(dest, cost));
 				break;
 			case 2:
-				Viaggio buff = chViaggio();
-				System.out.println("Inserisci il nome: ");
-				String nome = Util.inputString();
-				buff.aggiungiPrenotazione(new Prenotazione(nome, 50));
+				buff1 = chViaggio();
+				System.out.print("Inserisci il nome: ");
+				buff = Util.inputString();
+				System.out.print("Inserisci l'anticipo versato: ");
+				double anticipo = Util.inputDouble();
+				buff1.aggiungiPrenotazione(new Prenotazione(buff, anticipo));
 				break;
 			case 3:
-				Viaggio buff1 = chViaggio();
-				Viaggio buff2 = chViaggio();
+				buff1 = chViaggio();
+				buff2 = chViaggio();
 				buff2.importBook(buff1.getBook());
+				System.out.println("Trasferimento avvenuto");
 				break;
 			case 4:
-				Viaggio buff3 = chViaggio();
-				System.out.println(buff3);
+				buff1 = chViaggio();
+				System.out.println(buff1);
+				break;
+			case 5:
+				buff1 = chViaggio();
+				System.out.print("Inserisci il nome del elemento da cercare: ");
+				buff = Util.inputString();
+				System.out.println(buff1.searchPByName(buff) != null ? buff1.searchPByName(buff) : "Non esiste nessun " + buff + "...");
+				break;
+			case 6:
+				buff1 = chViaggio();
+				Prenotazione buff3 = chPrenotazione(buff1);
+				if ( buff3 != null ) {
+					int iPren = buff1.getIndex(buff3);
+					if ( iPren >= 0 )
+						buff1.deletePrenByIndex(iPren);
+				}
 				break;
 			default:
 				return;
@@ -62,4 +85,21 @@ public class Main {
 		int ch = Util.inputInt();
 		return (Viaggio) viaggi.get(ch);
 	}
+	
+	private static Prenotazione chPrenotazione(Viaggio viaggio) throws IOException {
+		if ( viaggio.book.size() == 0 ) {
+			System.out.println("Non ci sono prenotazioni per questo viaggio");
+			return null;
+		}
+		System.out.println("Quale prenotazione? ");
+		for ( int i = 0 ; i < viaggio.book.size() ; i++ )
+			System.out.println("-"+(i+1)+"  "+ ((Prenotazione) viaggio.book.get(i)));
+		int ch = Util.inputInt() -1 ;
+		if ( ch < viaggio.book.size())
+			return (Prenotazione) viaggio.book.get(ch);
+		else
+			return null;
+	}
+	
+	
 }

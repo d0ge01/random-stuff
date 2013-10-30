@@ -18,15 +18,18 @@ public class Viaggio {
 	}
 	
 	public String toString() {
-		String ret = "Lista prenotazioni per " + this.destinazione + ":\n";
-		for ( int i = 0 ; i < this.book.size(); i++ )
+		int i;
+		String ret = "Lista prenotazioni per " + this.destinazione + " ( costo : " + this.costo + " ) :\n";
+		for ( i = 0 ; i < this.book.size(); i++ )
 			ret += "-"+i+" "+this.book.get(i) + "\n";
+		ret += "ci sono " + i + " prenotazioni..\n";
 		return ret;
 	}
 	
 	public void cambiaCosto(double costo) {
 		this.costo = costo;
 	}
+	
 	public LinkedList<Prenotazione> getBook() {
 		LinkedList buff = this.book;
 		book = new LinkedList();
@@ -38,5 +41,24 @@ public class Viaggio {
 		for ( int i = 0 ; i < v.size() ; i++ ) {
 			this.book.add((Prenotazione) v.get(i));
 		}
+	}
+	
+	public Prenotazione searchPByName(String name) {
+		for ( int i = 0 ; i < this.book.size() ; i++ ) {
+			if ( this.book.get(i).nome.equals(name) )
+				return this.book.get(i);
+		}
+		return null;
+	}
+	
+	public void deletePrenByIndex(int i) {
+		this.book.remove(i);
+	}
+	
+	public int getIndex(Prenotazione p) {
+		for ( int i = 0 ; i <= this.book.size(); i++ )
+			if ( this.book.get(i).equals(p))
+				return i;
+		return -1;
 	}
 }

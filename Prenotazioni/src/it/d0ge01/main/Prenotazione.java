@@ -14,7 +14,7 @@ public class Prenotazione {
 	}
 	
 	public String toString() {
-		return "Prenotazione: " + this.nome + " - " + this.costo + " - " + this.anticipo;
+		return "Prenotazione: " + this.nome + " " + this.anticipo;
 	}
 	
 	public boolean equals(Object j) {
