@@ -2,20 +2,29 @@ package it.d0ge01.main;
 
 public class Prenotazione {
 	protected String nome = "";
-	protected int costo = 0;
-	protected int anticipo=0;
+	protected double anticipo=0;
 	
-	public Prenotazione( String nome, int costo, int anticipo) {
+	public Prenotazione( String nome, double anticipo) {
 		this.nome = nome;
-		this.costo = costo;
 		this.anticipo = anticipo;
 	}
 	
-	public void cambiaCosto(int costo) {
-		this.costo = costo;
+	public void aggiungiAnticipo(double soldi) {
+		this.anticipo += soldi;
 	}
 	
 	public String toString() {
 		return "Prenotazione: " + this.nome + " - " + this.costo + " - " + this.anticipo;
+	}
+	
+	public boolean equals(Object j) {
+		if ( j instanceof Prenotazione ) {
+			Prenotazione buff = (Prenotazione) j;
+			if ( this.nome.equals(buff.nome) && this.anticipo == buff.anticipo )
+				return true;
+			else
+				return false;
+		} else
+			return false;
 	}
 }

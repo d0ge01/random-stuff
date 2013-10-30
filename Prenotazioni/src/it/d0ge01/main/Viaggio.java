@@ -5,9 +5,11 @@ import java.util.LinkedList;
 public class Viaggio {
 	protected LinkedList<Prenotazione> book;
 	protected String destinazione;
+	protected double costo;
 	
-	public Viaggio(String dest) {
+	public Viaggio(String dest, double costo) {
 		this.destinazione = dest;
+		this.costo = costo;
 		this.book = new LinkedList();
 	}
 	
@@ -22,9 +24,8 @@ public class Viaggio {
 		return ret;
 	}
 	
-	public void cambiaCosto(int costo) {
-		for ( int i = 0 ; i < this.book.size(); i++ )
-			((Prenotazione) this.book.get(i)).cambiaCosto(costo);
+	public void cambiaCosto(double costo) {
+		this.costo = costo;
 	}
 	public LinkedList<Prenotazione> getBook() {
 		LinkedList buff = this.book;

@@ -12,36 +12,39 @@ public class Main {
 	
 	private static void menu() throws IOException {
 		while(true) {
-		System.out.println("1- Aggiungi viaggio");
-		System.out.println("2- Aggiungi prenotazione");
-		System.out.println("3- Sposta prenotazioni");
-		System.out.println("4- Vedi prenotazioni");
-		System.out.println("0- Esci");
-		int ch = Util.inputInt();
-		switch ( ch ) {
-		case 1:
-			System.out.print("Inserisci la destinazione: ");
-			String dest = Util.inputString();
-			viaggi.add(new Viaggio(dest));
-			break;
-		case 2:
-			Viaggio buff = chViaggio();
-			System.out.println("Inserisci il nome: ");
-			String nome = Util.inputString();
-			buff.aggiungiPrenotazione(new Prenotazione(nome, 50, 50));
-			break;
-		case 3:
-			Viaggio buff1 = chViaggio();
-			Viaggio buff2 = chViaggio();
-			buff2.importBook(buff1.getBook());
-			break;
-		case 4:
-			Viaggio buff3 = chViaggio();
-			System.out.println(buff3);
-			break;
-		default:
-			return;
-		}
+			System.out.println("Agenzia viaggi:  ");
+			System.out.println("1- Aggiungi viaggio");
+			System.out.println("2- Aggiungi prenotazione");
+			System.out.println("3- Sposta prenotazioni");
+			System.out.println("4- Vedi prenotazioni");
+			System.out.println("0- Esci");
+			int ch = Util.inputInt();
+			switch ( ch ) {
+			case 1:
+				System.out.print("Inserisci la destinazione: ");
+				String dest = Util.inputString();
+				System.out.print("Inserisci il costo: ");
+				double cost = Util.inputDouble();
+				viaggi.add(new Viaggio(dest, cost));
+				break;
+			case 2:
+				Viaggio buff = chViaggio();
+				System.out.println("Inserisci il nome: ");
+				String nome = Util.inputString();
+				buff.aggiungiPrenotazione(new Prenotazione(nome, 50));
+				break;
+			case 3:
+				Viaggio buff1 = chViaggio();
+				Viaggio buff2 = chViaggio();
+				buff2.importBook(buff1.getBook());
+				break;
+			case 4:
+				Viaggio buff3 = chViaggio();
+				System.out.println(buff3);
+				break;
+			default:
+				return;
+			}
 		}
 	}
 	
