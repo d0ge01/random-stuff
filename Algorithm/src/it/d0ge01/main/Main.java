@@ -6,6 +6,7 @@ import it.d0ge01.armstrong.*;
 import it.d0ge01.bmi.*;
 import it.d0ge01.equ2.Equal2;
 import it.d0ge01.fatt.Fatt;
+import it.d0ge01.prime.Eratostene;
 import it.d0ge01.util.*;
 
 public class Main {
@@ -30,6 +31,7 @@ public class Main {
 			System.out.println(" 2- Il tuo fattore rischio           ");
 			System.out.println(" 3- Equazioni di terzo grado         ");
 			System.out.println(" 4- Fattoriale di un numero          ");
+			System.out.println(" 5- Eratostene ");
 			System.out.println(" 0- esci          ");
 			System.out.println("=====================================");
 			System.out.print("Scegli: ");
@@ -42,9 +44,9 @@ public class Main {
 				int n = Util.inputInt();
 				Armstrong ob = new Armstrong(n);
 				if ( ob.checkN() )
-					System.out.println("Si è un numero di Armstrong..");
+					System.out.println("Si ï¿½ un numero di Armstrong..");
 				else
-					System.out.println("Non è un numero di Armstrong ");
+					System.out.println("Non ï¿½ un numero di Armstrong ");
 			}
 			
 			if ( ch == 2 ) {
@@ -68,8 +70,8 @@ public class Main {
 				
 				Equal2 ob = new Equal2(ax,bx,c);
 				if ( ob.real ) {
-					System.out.println("La prima radice è " + ob.radici(0));
-					System.out.println("La seconda radice è " + ob.radici(1));
+					System.out.println("La prima radice ï¿½ " + ob.radici(0));
+					System.out.println("La seconda radice ï¿½ " + ob.radici(1));
 				}
 			}
 			
@@ -78,9 +80,23 @@ public class Main {
 				System.out.print("Inserisci un numero: ");
 				n = Util.inputInt();
 				Fatt ob = new Fatt(n);
-				System.out.println("Il fattoriale è " + ob.fatt());
+				System.out.println("Il fattoriale ï¿½ " + ob.fatt());
 			}
 			
+			if ( ch == 5 ) {
+				int n;
+				System.out.println("Fino a che numero vuoi trovare i primi? ");
+				n = Util.inputInt();
+				Eratostene ob = new Eratostene(n);
+				int[] buff = ob.calc();
+				
+				for ( int i = 0; i < buff.length ; i++ ) {
+					System.out.print(" " + buff[i] + " ");
+					if ( i+1 % 10 == 0 )
+						System.out.println("");
+				}
+				System.out.println("");
+			}
 			if ( ch == 0 )
 				cond = false;
 		}
