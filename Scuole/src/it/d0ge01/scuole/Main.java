@@ -20,6 +20,9 @@ public class Main {
 		String name;
 		int weight;
 		double vote;
+		
+		String materia;
+		
 		while ( c != 0 ) {
 			System.out.println("1. Aggiungi una scuola");
 			System.out.println("2. Aggiungi classe in una scuola");
@@ -28,6 +31,7 @@ public class Main {
 			System.out.println("5. Elenca studenti di una classe");
 			System.out.println("6. Elenca studenti di una scuola");
 			System.out.println("7. Modifica Studente");
+			System.out.println("8. Aggiungi voto a uno studente"); 
 			System.out.println("0. Esci ");
 			
 			c = Util.inputInt();
@@ -54,12 +58,8 @@ public class Main {
 				name = Util.inputString();
 				System.out.println("Inserisci il peso:");
 				weight = Util.inputInt();
-				do {
-					System.out.println("Inserisci la media:");
-					vote = Util.inputDouble();
-				}while(!(vote>=0 && vote <= 10));
 				
-				buff2.addStudente(new Studente(name, weight, vote));
+				buff2.addStudente(new Studente(name, weight));
 				break;
 			case 4:
 				System.out.println("Inserisci il nome: ");
@@ -82,16 +82,26 @@ public class Main {
 				buff1 = chSchool();
 				buff2 = chClass(buff1);
 				buff3 = chStudent(buff2);
-				System.out.println("Cosa vuoi modificare? (N/W/V)");
+				System.out.println("Cosa vuoi modificare? (N/W)");
 				char ch = Util.inputChar();
 				System.out.print("Inserisci il nuovo dato: ");
 				if ( ch == 'N')
 					buff3.setName(Util.inputString());
 				if ( ch == 'W')
 					buff3.setWeight(Util.inputInt());
-				if ( ch == 'V')
-					buff3.setVote(Util.inputDouble());
 				System.out.println("Campo modificato");
+				break;
+			case 8:
+				buff1 = chSchool();
+				buff2 = chClass(buff1);
+				buff3 = chStudent(buff2);
+				
+				System.out.print("Inserisci la materia: ");
+				materia = Util.inputString();
+				System.out.print("Inserisci il voto: ");
+				vote = Util.inputDouble();
+				
+				buff3.setVote(materia, vote);
 				break;
 			default:
 				System.out.println("Stupio");
