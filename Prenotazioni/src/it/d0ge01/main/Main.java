@@ -14,6 +14,11 @@ public class Main {
 		Viaggio buff1;
 		Viaggio buff2;
 		String buff;
+		Prenotazione buff3;
+		
+		boolean buff4 = false;
+		double anticipo;
+		
 		while(true) {
 			System.out.println("Agenzia viaggi:  ");
 			System.out.println("1- Aggiungi viaggio");
@@ -22,6 +27,7 @@ public class Main {
 			System.out.println("4- Vedi prenotazioni");
 			System.out.println("5- Cerca prenotazione in un viaggio dal nome");
 			System.out.println("6- Cancella prenotazione");
+			System.out.println("7- Cerca viaggio data prenotazione");
 			System.out.println("0- Esci");
 			int ch = Util.inputInt();
 			switch ( ch ) {
@@ -37,7 +43,7 @@ public class Main {
 				System.out.print("Inserisci il nome: ");
 				buff = Util.inputString();
 				System.out.print("Inserisci l'anticipo versato: ");
-				double anticipo = Util.inputDouble();
+				anticipo = Util.inputDouble();
 				buff1.aggiungiPrenotazione(new Prenotazione(buff, anticipo));
 				break;
 			case 3:
@@ -58,11 +64,31 @@ public class Main {
 				break;
 			case 6:
 				buff1 = chViaggio();
-				Prenotazione buff3 = chPrenotazione(buff1);
+				buff3 = chPrenotazione(buff1);
 				if ( buff3 != null ) {
 					int iPren = buff1.getIndex(buff3);
 					if ( iPren >= 0 )
 						buff1.deletePrenByIndex(iPren);
+				}
+				break;
+			case 7:
+				System.out.print("Inserisci il nome: ");
+				buff = Util.inputString();
+				System.out.print("Inserisci l'anticipo versato: ");
+				anticipo = Util.inputDouble();
+				buff3 = new Prenotazione(buff, anticipo);
+				
+				for ( int i = 0; i < viaggi.size(); i++ ) {
+					for ( int j = 0 ; j < ((Viaggio) viaggi.get(i)).book.size() ; j++ )
+						if ( ((Prenotazione) ((Viaggio) viaggi.get(i)).book.get(j)).equals(buff3)) {
+							System.out.println(((Viaggio) viaggi.get(i)));
+							buff4 = true;
+						}		
+				}
+				
+				if ( !buff4 ) {
+					System.out.println("Viaggio non trovato...");
+					buff4 = false;
 				}
 				break;
 			default:
