@@ -8,16 +8,20 @@ public class Entrata {
 		this.nFree = n;
 	}
 
-	public synchronized boolean getInside() {
-		if ( nFree > 0 ) {
-			nFree--;
-			return true;
-		}
-		else
-			return false;
+	public synchronized void getInside() {
+		if ( nFree == 0 ) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else
+			nFree --;
 	}
 	
 	public synchronized void getOut() {
 		nFree++;
+		notify();
 	}
 }
