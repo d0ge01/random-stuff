@@ -6,14 +6,16 @@ public class MyTree {
 	private Node root;
 	private int nx = 0;
 
+  private int nElement;
 	public MyTree() {
 		this.root = null;
-
+    this.nElement = 0;
 	}
 
 	public void add(int k) {
 		Node newNode = new Node();
 		newNode.data = k;
+    this.nElement += 1;
 		if ( this.root == null ) {
 			this.root = newNode;
 		}
@@ -41,19 +43,7 @@ public class MyTree {
 	}
 
 	public int getNNode() {
-		return getNNodeRec(this.root);
-	}
-
-	private int getNNodeRec(Node p) {
-		if ( p != null ) {
-			if ( p.leftChild != null )
-				return nx+getNNodeRec(p.leftChild);
-			if ( p.rightChild != null )
-				return nx+getNNodeRec(p.rightChild);
-			return 0;
-		} else {
-			return 0;
-		}
+		return this.nElement;
 	}
 
 	private void reOrder() {
@@ -84,7 +74,6 @@ public class MyTree {
 	}
 
 	public void print(int p) {
-    System.out.println("");
 		/*
      * traverse in-order    p = 1
      * traverse pre-order   p = 2
@@ -103,6 +92,7 @@ public class MyTree {
 		default:
 			break; // useless :(
 		}
+    System.out.println("");
 	}
 
 	private void preOrdine(Node p) {
