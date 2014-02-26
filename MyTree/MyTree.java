@@ -143,46 +143,41 @@ public class MyTree {
 		return (int) (Math.log10(this.getNNode()) / Math.log(2));
 	}
 
-  public void displayTree() {
+  public void display() {
     Stack globalStack = new Stack();
     globalStack.push(root);
     int nBlanks = 32;
-    boolean isRowEmpty = false;
+    boolean rigaVuota = false;
     System.out.println("");
-    System.out.println("......................................................");
-    while(isRowEmpty==false) {
+    System.out.println("=========== VISUALIZZAZIONE ALBERO ============");
+    while ( rigaVuota == false ) {
       Stack localStack = new Stack();
-      isRowEmpty = true;
-      for(int j=0; j<nBlanks; j++)
+      rigaVuota = true;
+      for ( int i = 0 ; i < nBlanks ; i++ )
         System.out.print(' ');
-      while(globalStack.isEmpty()==false)
-      {
-      Node temp = (Node)globalStack.pop();
-      if(temp != null)
-      {
-      System.out.print(temp.data);
-      localStack.push(temp.leftChild);
-      localStack.push(temp.rightChild);
+      while ( globalStack.isEmpty() == false ) {
+        Node temp = (Node) ( globalStack.pop() );
+        if ( temp != null ) {
+          System.out.print(temp.data);
+          localStack.push(temp.leftChild);
+          localStack.push(temp.rightChild);
 
-if(temp.leftChild != null ||
-temp.rightChild != null)
-isRowEmpty = false;
-}
-else
-{
-System.out.print("  ");
-localStack.push(null);
-localStack.push(null);
-}
-for(int j=0; j<nBlanks*2-2; j++)
-System.out.print(' ');
-}  // end while globalStack not empty
-System.out.println();
-nBlanks /= 2;
-while(localStack.isEmpty()==false)
-globalStack.push( localStack.pop() );
-}  // end while isRowEmpty is false
-System.out.println(
-"......................................................");
-}  // end displayTree()
+          if ( temp.leftChild != null || temp.rightChild != null )
+            rigaVuota = false;
+        } else {
+          System.out.print("  ");
+          localStack.push(null);
+          localStack.push(null);
+        }
+
+        for(int j=0; j<nBlanks*2-2; j++)
+          System.out.print(' ');
+      }
+      System.out.println("");
+      nBlanks = nBlanks / 2;
+
+      while(localStack.isEmpty()==false)
+        globalStack.push(localStack.pop());
+    }
+  }
 }

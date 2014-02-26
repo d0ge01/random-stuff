@@ -12,12 +12,13 @@ public class Prova {
 		t1.add(3);
 		t1.add(99);
 		t1.add(44);
+    t1.add(50);
     System.out.print("Attraversamento in in-ordine:");
 		t1.print(1);
     System.out.print("Attraversamento in pre-ordine:");
     t1.print(2);
     System.out.print("Attraversamento in post-ordine:");
     t1.print(3);
-    t1.displayTree();
+    t1.display();
 	}
 }
