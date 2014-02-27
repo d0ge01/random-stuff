@@ -21,6 +21,13 @@ public class Prova {
         t1.add(0);
       }
     }
+    System.out.println("Vuoi ordinarlo? Si o no?");
+    String sr = "";
+    try {
+      sr = Util.inputString();
+    } catch(IOException e) {}
+    if ( sr.equals("si") )
+      t1.reOrder();
 
     System.out.print("Attraversamento in in-ordine:  ");
 		t1.print(1);

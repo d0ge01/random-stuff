@@ -7,6 +7,8 @@ public class MyTree {
 	private int nx = 0;
 
   private int nElement;
+  private boolean debug = true;
+
 	public MyTree() {
 		this.root = null;
     this.nElement = 0;
@@ -46,20 +48,37 @@ public class MyTree {
 		return this.nElement;
 	}
 
-	private void reOrder() {
+	public void reOrder() {
 		LinkedList<Integer> l = new LinkedList<Integer>();
 		reOrderX(l,this.root);
-		for ( int i = 0 ; i < l.size() -1 ; i++ ) {
-			if ( l.get(i) < l.get(i+1)) {
+
+    if ( this.debug ) {
+      for ( int i = 0 ; i < l.size();i++)
+        System.out.print(' ' + l.get(i) + ' ');
+      System.out.println("");
+    }
+
+
+    for ( int i = 0 ; i < l.size() -1 ; i++ ) {
+			if ( l.get(i) > l.get(i+1)) {
 				l.add(l.get(i+1), i);
 				l.remove(i+1);
 			}
 		}
+
+    if ( this.debug ) {
+      for ( int i = 0 ; i < l.size();i++)
+        System.out.print(' ' + l.get(i) + ' ');
+      System.out.println("");
+    }
+
 		this.root = null;
 		int md = l.size()/2;
-		add(l.get(md));
+
+    add(l.get(md));
 		l.remove(md);
-		for ( int i = 0; i < l.size(); i++ )
+
+    for ( int i = 0; i < l.size(); i++ )
 			add(l.get(i));
 	}
 
