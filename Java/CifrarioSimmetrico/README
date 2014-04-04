@@ -1,0 +1,36 @@
+Cifrario Simmetrico by d0ge01
+
+cambia ad ogni esecuzione, aggiunge un fattore del 50% casuale
+
+Usage:
+java Test frase da cifrare
+
+
+Example:
+[d0ge@localhost-002 Encoder]$ java Test ciao a tutti
+-?(E(%£(__?"oG$O/F:!/D££O$+L!&gG1/(F+?E?)1gQ|^/D!?o)+:!e£$g0FF"£=%o0e-F^("£DG!_|%""/o0EF:")%%o11_|^(od£E$:
+
+[d0ge@localhost-002 Encoder]$ java Test d0ge01
+Q?£^gg?£L|^oE!%/FQ^?£O1Oo--"=%GD"e-F=OE""%+Q^Gd/^g+
+
+[d0ge@localhost-002 Encoder]$ java Test a
+^[[A+?/&d!^E-
+
+[d0ge@localhost-002 Encoder]$ java Test a
+:"^g^(E^F
+
+[d0ge@localhost-002 Encoder]$ java Test a
+Q&!E&(G$-
+
+[d0ge@localhost-002 Encoder]$ java Test a
+F!^0£)g$:
+
+[d0ge@localhost-002 Encoder]$ java Test a
+|£%d/!1$+
+
+[d0ge@localhost-002 Encoder]$ java Test a
+_)"?O$"D|
+
+[d0ge@localhost-002 Encoder]$ java Test a
+Q%%&E$/e:
+
