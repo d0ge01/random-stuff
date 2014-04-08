@@ -6,15 +6,16 @@ class Encoder {
 	private char[] dels = { '|', '_', 'L', 'Q', 'F', '+', '-', ':' };
 	
 	private int salt;
+
 	public Encoder() {
-		this.salt = ( ((int) (Math.random()*20)) % 2 == 0 ) ? 23 : 12;
+		this.salt = ((int) (Math.random()*20));
 	}
 	
 	public String encode(String txt) {
 		String[] buffs = new String[txt.length()];
 		String ret = "";
 		for ( int i = 0 ; i < txt.length() ; i++ ) {
-			buffs[i] = Integer.toBinaryString(((int) txt.charAt(i) ^ this.salt));
+			buffs[i] = Integer.toBinaryString(((int) txt.charAt(i)) ^ this.salt);
 		}
 		
 		for ( int i = 0 ; i < buffs.length ; i++ ) {
@@ -23,7 +24,7 @@ class Encoder {
 				ret += this.sub(buffs[i].charAt(j));
 			ret += this.getRandDel();;
 		}
-		return ret;
+		return ret+this.salt;
 	}
 	
 	private char getRandDel() {
