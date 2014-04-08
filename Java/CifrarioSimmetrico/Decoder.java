@@ -14,7 +14,12 @@ class Decoder {
 		if ( txt.length() < 3 )
 			return "";
 
-		this.salt = Integer.parseInt(txt.substring(txt.length()-2,txt.length())); 
+		try {
+			this.salt = Integer.parseInt(txt.substring(txt.length()-2,txt.length())); 
+		} catch ( Exception e ) {
+			this.salt = Integer.parseInt(txt.substring(txt.length()-1,txt.length()));
+		}
+
 		String buff = "";
 		
 		for ( int i = 0 ; i < txt.length() - 2 ; i++ )
