@@ -7,6 +7,14 @@ class Node {
 	public Node leftChild = null;
 	public Node rightChild = null;
 
+	public Node(int data) {
+		this.data = data;
+	}
+	
+	public String toString() {
+		return " " + this.data + " ";
+	}
+	
 	public void stamp() {
 		System.out.println(" " + this.data + " ");
 	}

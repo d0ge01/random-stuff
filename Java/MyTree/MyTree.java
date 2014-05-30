@@ -11,13 +11,28 @@ public class MyTree {
 
 	public MyTree() {
 		this.root = null;
-    this.nElement = 0;
+		this.nElement = 0;
 	}
 
+	
+	public Tree makePerfectTree(int n) {
+		Tree buff;
+		int sin = ( n - 1 ) / 2;
+		int des =  n - 1 - sin;
+		if ( n == 0 )
+			return null;
+		else {
+			buff = new Node(10);
+			buff.leftChild = makePerfectTree(sin);
+			buff.rightChild = makePerfectTree(des);
+			return buff;
+		}
+	}
+	
 	public void add(int k) {
 		Node newNode = new Node();
 		newNode.data = k;
-    this.nElement += 1;
+		this.nElement += 1;
 		if ( this.root == null ) {
 			this.root = newNode;
 		}
