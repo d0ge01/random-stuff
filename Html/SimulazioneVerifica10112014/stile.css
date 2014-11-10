@@ -1,0 +1,167 @@
+body {
+  background-image: url('images/sfondo.png');
+}
+
+div {
+  /*border: white 1px solid;*/
+}
+
+
+#container {
+  width:  760px;
+  height: 800px;
+  margin-top: 50px;
+}
+
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: #111111;
+}
+
+#header img {
+  margin-top: 10px;
+}
+
+#menu {
+  width: 100%;
+  margin-top: 15px;
+  height: 50px;
+  background-color: purple;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#menu a {
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#menu a:hover {
+  background-color: pink;
+}
+
+#slide {
+  margin-top: 20px;
+  width: 760px;
+  background: #111111;
+}
+
+#slide img {
+  display: none;
+  padding: 15px;
+  width: 730px;
+  
+}
+
+#news, #mappe {
+  background-color: #111111;
+  text-align: left;
+  width: 760px;
+  height: 300px;
+  margin-top: 15px;
+  color: white;
+}
+
+#news {
+  height: 300px;
+}
+/*
+ *  <div id="news">
+	 <div id="sinistranews">
+	  <div class="newsmenu">
+	    News - Hit Parade - Our Albums
+	  </div>
+	  </div>
+	  <div id="destranews">
+	   <div class="newsmenu">Latest Albums</div>
+	  </div>
+     </div>*/
+
+#sinistranews {
+  display: block;
+  float: left;
+  width: 440px;
+  height: 100%;
+}
+
+#destranews {
+  display: block;
+  float: right;
+  width: 300px;
+  height: 100%;
+}
+
+#destranews img {
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 250px;
+  height:250px;
+  border: none;
+}
+.newsmenu {
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  padding-bottom: 10px;
+  border-bottom: 4px purple solid;
+}
+
+.blackcoso {
+  background-color: black;
+  height: 100px;
+  width: 430px;
+  margin: 5px;
+}
+
+.blackcoso .immagine {
+    display: block;
+    float: left;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.blackcoso .immagine img{
+    height: 80px;
+}
+
+.blackcoso .testo {
+  padding-left: 7px;
+}
+
+.blackcoso .testo .author {
+  background-image: url('images/author.png');
+  color: black;
+  font-size: 13px;
+}
+#mappe iframe {
+  margin-top: 10px;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+#mappe div {
+  margin-left: 5px;
+}
+
+.sidediv {
+  font-size: 13px;
+  width:130px;
+  height: 300px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.sidediv p {
+  padding-bottom: 5px;
+  font-size: 13px;
+  border-bottom: 1px dotted white;
+}
+#crediti {
+  background-color: black;
+  color: white;
+  text-align: center;
+}

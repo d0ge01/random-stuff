@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <script src="jquery.js"></script>
+  <script src="verifica.js"></script>
+  <!-- GOOGLE MAPS API -->
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <script src="bootstrap.js"></script>
+</head>
+<body>
+  <center>
+  <div id="container">
+     <div id="header" align="left">
+       <img src="images/logo.png">
+     </div>
+     
+     <div id="menu">
+	<a href="">HOME</a>
+	<a href="">ABOUT</a>
+	<a href="">CONTACT</a>
+     </div>
+     
+     <div id="slide">
+	<img src="images/slide1.png" id="image1" onclick="nextImage();" class="slideImage" display="none">
+	<img src="images/slide2.png" id="image2" onclick="nextImage();" class="slideImage" display="none">
+	<img src="images/slide3.png" id="image3" onclick="nextImage();" class="slideImage" display="none">
+     </div>
+     
+     <script type="text/javascript">
+      nextImage();
+    </script>
+     <div id="news">
+	 <div id="sinistranews">
+	  <div class="newsmenu">
+	    News - Hit Parade - Our Albums
+	  </div>
+	  <div class="blackcoso">
+	  <div class="immagine">
+	    <img src="images/img1.png">
+	  </div>
+	  
+	  <div class="testo">
+	     <h3> Benvenuto eheheheheh</h3>
+	     <div class="author">
+		By Jesus Christ nella data 25/08/2014
+	     </div>
+	     <div>
+	     Questa pagina fa schifo
+	     </div>
+	  </div>
+	  </div>
+	  <div class="blackcoso">
+	    <div class="immagine">
+	    <img src="images/img2.png">
+	  </div>
+	  
+	  <div class="testo">
+	     <h3> Un altra cosa</h3>
+	     <div class="author">
+		By Satan nella data 25/08/2014
+	     </div>
+	     <div>
+	     Questa pagina fa schifo più della musica melodica napoletana
+	     </div>
+	  </div>
+	  </div>
+	  </div>
+	  <div id="destranews">
+	   <div class="newsmenu">Latest Albums</div>
+	   <img src="images/albums.png">
+	  </div>
+     </div>
+ 
+ 
+     <div id="mappe">
+      <table>
+      <tr>
+      <td class="sidediv">
+      <b><h2>ABOUT US</h2></b></br>
+      <i>Noi siamo i ragazzi della quinta b, depi con chi pensi da avere a che fare</i>
+      </td>
+      <td>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d22283.38347088972!2d12.6823131!3d45.72261244999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1415644677861" width="400" height="250" frameborder="0" style="border:0"></iframe>
+      </td>
+      <td class="sidediv">
+      <b><h2>CONTATTACI</h2></b>
+      <p>Indirizzo: Via milano 9</p>
+      <p>Numero telefono: 01234567</p>
+      <p>Social network no grazie</p>
+      </td>
+      </tr>
+      </table>
+     </div>
+     <div id="crediti">
+      &copy; Salvatore Criscione 2014 ITIS VOLTERRA
+     </div>
+  </div>
+  </center>
+</body>
+</html>
+<link rel="stylesheet" href="stile.css" />
